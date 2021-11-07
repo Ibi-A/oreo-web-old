@@ -5,14 +5,22 @@
         v-for="picture in pictures"
         :key="picture.id"
         :img-src="picture.src"
+        v-b-modal="'modal-' + id + '-' + picture.id"
       >
         <h1>{{ picture.title }}</h1>
-        <p>{{ picture.description }}</p>
+
+        <picture-modal
+            :post-id="id"
+            :picture-id="picture.id"
+            :title="picture.title"
+            :description="picture.description"
+            :src="picture.src"
+        />
+
       </b-carousel-slide>
     </b-carousel>
 
     <b-card-text>
-      <h1></h1>
       <b-button v-b-toggle="'collapse-' + id" variant="link" class="mb-3"><h1>{{ title }}</h1></b-button>
       <b-collapse :id="'collapse-' + id">
         {{ description }}
@@ -21,12 +29,19 @@
 
     <template #footer>
       <b-badge>{{ date }}</b-badge>
+      <b-button v-b-modal.modal-center>Hello</b-button>
     </template>
+    
   </b-card>
 </template>
 
 <script lang="ts">
+import PictureModal from './PictureModal.vue'
+
 export default {
+    components: {
+        PictureModal,
+    },
   props: {
     id: Number,
     date: String,
