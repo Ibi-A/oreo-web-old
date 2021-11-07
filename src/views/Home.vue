@@ -1,6 +1,5 @@
 <template>
   <b-container>
-    <h1>Hello world!</h1>
     <post-card
       v-for="post in posts"
       :key="post.id"

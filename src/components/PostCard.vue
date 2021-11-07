@@ -10,18 +10,20 @@
         <h1>{{ picture.title }}</h1>
 
         <picture-modal
-            :post-id="id"
-            :picture-id="picture.id"
-            :title="picture.title"
-            :description="picture.description"
-            :src="picture.src"
+          :post-id="id"
+          :picture-id="picture.id"
+          :title="picture.title"
+          :description="picture.description"
+          :src="picture.src"
         />
-
       </b-carousel-slide>
     </b-carousel>
 
     <b-card-text>
-      <b-button v-b-toggle="'collapse-' + id" variant="link" class="mb-3"><h1>{{ title }}</h1></b-button>
+      <b-icon icon="arrow90deg-down" variant="primary"/>
+      <b-button v-b-toggle="'collapse-' + id" variant="link" class="mb-3"
+        ><h1>{{ title }}</h1></b-button
+      >
       <b-collapse :id="'collapse-' + id">
         {{ description }}
       </b-collapse>
@@ -30,17 +32,16 @@
     <template #footer>
       <b-badge>{{ date }}</b-badge>
     </template>
-    
   </b-card>
 </template>
 
 <script lang="ts">
-import PictureModal from './PictureModal.vue'
+import PictureModal from "./PictureModal.vue";
 
 export default {
-    components: {
-        PictureModal,
-    },
+  components: {
+    PictureModal,
+  },
   props: {
     id: Number,
     date: String,
