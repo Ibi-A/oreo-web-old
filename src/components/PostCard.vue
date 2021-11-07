@@ -1,6 +1,6 @@
 <template>
   <b-card>
-    <b-carousel class="mb-3" controls indicators>
+    <b-carousel class="mb-3" indicators controls fade>
       <b-carousel-slide
         v-for="picture in pictures"
         :key="picture.id"
