@@ -29,7 +29,6 @@
 
     <template #footer>
       <b-badge>{{ date }}</b-badge>
-      <b-button v-b-modal.modal-center>Hello</b-button>
     </template>
     
   </b-card>
